@@ -58,6 +58,8 @@ async function run() {
             if (res != null && res.statusCode === 200 && res.result != null) {
                 if (res.result.scopedToken != null) {
                     core.setOutput('scopedToken', res.result.scopedToken);
+                    // set scoped token as an env variable
+                    core.exportVariable('SCOPED_TOKEN', res.result.scopedToken);
                 }
                 else {
                     core.setFailed(`Failed to get scoped token: ${res.result.message}`);

@@ -19,7 +19,44 @@ jobs:
         uses: actions/checkout@v3
 
       - name: GetToken
+        id: getToken
         uses: ./
         with:
-          installationId: ${{ vars.INSTALLATION_ID }}" 
-          endpoint: ${{ vars.ENDPOINT }}"
+          installationId: ${{ vars.INSTALLATION_ID }}
+          endpoint: ${{ vars.ENDPOINT }}
+      
+      - name: Use the token from the env
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ env.SCOPED_TOKEN }}
+          script: |
+            github.rest.repos.get({
+              owner: 'octodemo',
+              repo: 'codespace-oddity'
+            }).then((response) => {
+              if(!response.data.full_name) {
+                core.setFailed(`Failed to access repo octodemo/codespace-oddity. Response was ${response}`);
+              } else {
+                console.log('Successfully accessed repo octodemo/codespace-oddity');
+              }
+            }).catch((error) => {
+              core.setFailed(`Failed to access repo. Error was ${error}`);
+            })
+      
+      - name: Use the token from the output
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ steps.getToken.outputs.scopedToken }}
+          script: |
+            github.rest.repos.get({
+              owner: 'octodemo',
+              repo: 'codespace-oddity'
+            }).then((response) => {
+              if(!response.data.full_name) {
+                core.setFailed(`Failed to access repo octodemo/codespace-oddity. Response was ${response}`);
+              } else {
+                console.log('Successfully accessed repo octodemo/codespace-oddity');
+              }
+            }).catch((error) => {
+              core.setFailed(`Failed to access repo. Error was ${error}`);
+            })
