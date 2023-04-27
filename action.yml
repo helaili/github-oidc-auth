@@ -1,0 +1,21 @@
+name: 'GitHub OIDC Auth'
+description: 'Retrieve a scoped GitHub token based on the claims of an OIDC token. This action is intended to be used in conjunction with the GitHub App OIDC authentication app (https://github.com/helaili/github-oidc-auth-app).'
+author: 'helaili'
+branding:
+  icon: 'lock'
+  color: 'green'
+inputs:
+  endpoint: 
+    required: true
+    type: string
+    description: 'The url of the GitHub App OIDC authentication app'
+  installationId: 
+    required: true
+    type: integer
+    description: 'The url of the GitHub App OIDC authentication app'
+outputs:
+  scopedToken: 
+    description: 'The generated scoped GitHub token'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

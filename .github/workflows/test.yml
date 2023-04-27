@@ -1,0 +1,21 @@
+name: Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+
+jobs:
+  build:
+    name: Build and test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: GetToken
+        uses: ./
+        with:
+          installationId: ${{ vars.INSTALLATION_ID }}" 
+          endpoint: ${{ vars.ENDPOINT }}"
