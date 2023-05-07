@@ -3,7 +3,7 @@ import * as rc from 'typed-rest-client/RestClient'
 
 interface ScopedTokenRequest {
   oidcToken: string
-  installationId: number
+  login: string
 }
 
 interface ScopedTokenResponse {
@@ -13,8 +13,8 @@ interface ScopedTokenResponse {
 }
 
 async function run (): Promise<void> {
-  const installationId = parseInt(core.getInput('installationId'))
-  core.debug(`Provided installationId: ${installationId}`)
+  const login = core.getInput('login')
+  core.debug(`Provided login: ${login}`)
 
   let endpoint: string = core.getInput('endpoint')
   core.debug(`Provided endpoint: ${endpoint}`)
@@ -31,7 +31,7 @@ async function run (): Promise<void> {
       core.debug(`ID Token: ${token}`)
       const request: ScopedTokenRequest = {
         oidcToken: token,
-        installationId
+        login
       }
 
       const rest: rc.RestClient = new rc.RestClient(

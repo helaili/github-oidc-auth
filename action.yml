@@ -9,10 +9,10 @@ inputs:
     required: true
     type: string
     description: 'The url of the GitHub App OIDC authentication app'
-  installationId: 
+  login: 
     required: true
-    type: integer
-    description: 'The url of the GitHub App OIDC authentication app'
+    type: string
+    description: 'The organization or user login owning the resources to be accessed'
 outputs:
   scopedToken: 
     description: 'The generated scoped GitHub token'

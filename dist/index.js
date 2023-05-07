@@ -33,8 +33,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(2186));
 const rc = __importStar(__nccwpck_require__(7405));
 async function run() {
-    const installationId = parseInt(core.getInput('installationId'));
-    core.debug(`Provided installationId: ${installationId}`);
+    const login = core.getInput('login');
+    core.debug(`Provided login: ${login}`);
     let endpoint = core.getInput('endpoint');
     core.debug(`Provided endpoint: ${endpoint}`);
     // endpoint should end with /token
@@ -48,7 +48,7 @@ async function run() {
         core.debug(`ID Token: ${token}`);
         const request = {
             oidcToken: token,
-            installationId
+            login
         };
         const rest = new rc.RestClient('github-oidc-auth-action', endpoint);
         rest

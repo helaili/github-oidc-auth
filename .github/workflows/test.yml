@@ -22,7 +22,7 @@ jobs:
         id: getToken
         uses: ./
         with:
-          installationId: ${{ vars.INSTALLATION_ID }}
+          login: ${{ vars.LOGIN }}
           endpoint: ${{ vars.ENDPOINT }}
       
       - name: Use the token from the env
