@@ -34,6 +34,10 @@ async function run (): Promise<void> {
         login
       }
 
+      // log the current time
+      const now = new Date()
+      console.log(`Current time: ${now.toISOString()}`)
+
       const rest: rc.RestClient = new rc.RestClient(
         'github-oidc-auth-action',
         endpoint
@@ -41,7 +45,6 @@ async function run (): Promise<void> {
       rest
         .create<ScopedTokenResponse>('', request)
         .then((res) => {
-          console.log(res)
           if (res != null && res.statusCode === 200 && res.result != null) {
             if (res.result.scopedToken != null) {
               core.setOutput('scopedToken', res.result.scopedToken)

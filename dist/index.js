@@ -50,11 +50,13 @@ async function run() {
             oidcToken: token,
             login
         };
+        // log the current time
+        const now = new Date();
+        console.log(`Current time: ${now.toISOString()}`);
         const rest = new rc.RestClient('github-oidc-auth-action', endpoint);
         rest
             .create('', request)
             .then((res) => {
-            console.log(res);
             if (res != null && res.statusCode === 200 && res.result != null) {
                 if (res.result.scopedToken != null) {
                     core.setOutput('scopedToken', res.result.scopedToken);
