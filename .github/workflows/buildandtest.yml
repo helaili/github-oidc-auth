@@ -27,8 +27,12 @@ jobs:
           cache: 'npm'
       - name: install
         run: npm install
-      - name: build & package
-        run: npm run all
+      - name: build
+        run: npm run build 
+      - name: lint
+        run: npm run lint 
+      - name: package
+        run: npm run package
       - name: Push
         run: |
           COMMIT_OPTIONS="--allow-empty"
