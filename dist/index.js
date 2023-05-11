@@ -35,6 +35,8 @@ const rc = __importStar(__nccwpck_require__(7405));
 async function run() {
     const login = core.getInput('login');
     core.debug(`Provided login: ${login}`);
+    const audience = core.getInput('audience');
+    core.debug(`Provided audience: ${audience}`);
     let endpoint = core.getInput('endpoint');
     core.debug(`Provided endpoint: ${endpoint}`);
     // endpoint should end with /token
@@ -43,7 +45,7 @@ async function run() {
         core.debug(`Updated endpoint: ${endpoint}`);
     }
     core
-        .getIDToken()
+        .getIDToken(audience)
         .then((token) => {
         const request = {
             oidcToken: token,
