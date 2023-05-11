@@ -28,15 +28,10 @@ async function run (): Promise<void> {
   core
     .getIDToken()
     .then((token) => {
-      core.debug(`ID Token: ${token}`)
       const request: ScopedTokenRequest = {
         oidcToken: token,
         login
       }
-
-      // log the current time
-      const now = new Date()
-      console.log(`Current time: ${now.toISOString()}`)
 
       const rest: rc.RestClient = new rc.RestClient(
         'github-oidc-auth-action',
@@ -46,7 +41,7 @@ async function run (): Promise<void> {
         .create<ScopedTokenResponse>('', request)
         .then((res) => {
           if (res != null && res.statusCode === 200 && res.result != null) {
-            if (res.result.scopedToken != null) {
+            if (res.result.scopedToken != null && res.result.scopedToken !== '') {
               core.setOutput('scopedToken', res.result.scopedToken)
               // set scoped token as an env variable
               core.exportVariable('SCOPED_TOKEN', res.result.scopedToken)
