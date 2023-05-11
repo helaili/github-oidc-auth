@@ -13,6 +13,10 @@ inputs:
     required: true
     type: string
     description: 'The organization or user login owning the resources to be accessed'
+  audience: 
+    required: false
+    type: string
+    description: 'The OIDC audience to use when requesting a token. Defaults to https://github.com/<login>'
 outputs:
   scopedToken: 
     description: 'The generated scoped GitHub token'

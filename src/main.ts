@@ -16,6 +16,9 @@ async function run (): Promise<void> {
   const login = core.getInput('login')
   core.debug(`Provided login: ${login}`)
 
+  const audience: string = core.getInput('audience')
+  core.debug(`Provided audience: ${audience}`)
+
   let endpoint: string = core.getInput('endpoint')
   core.debug(`Provided endpoint: ${endpoint}`)
 
@@ -26,7 +29,7 @@ async function run (): Promise<void> {
   }
 
   core
-    .getIDToken()
+    .getIDToken(audience)
     .then((token) => {
       const request: ScopedTokenRequest = {
         oidcToken: token,
