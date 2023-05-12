@@ -1,6 +1,6 @@
 # github-oidc-auth
 
-This is the companion action for the [`github-oidc-auth-app`](https://github.com/helaili/github-oidc-auth-app) GitHub App. This action will connect to an instance of this app and retrieve a scoped token that can be used to access GitHub resources belonging to an organisation or user that installed the app.
+This is the companion action for the [`github-oidc-auth-app`](https://github.com/helaili/github-oidc-auth-app) GitHub App. This action will connect to an instance of this app and retrieve a scoped token that can be used to access GitHub resources belonging to an organisation or user that installed the app. This means you can access to 3rd party ressources on GitHub with no secret and no Personal Access Token. Yes, you read it right, no PAT!!!!
 
 The action needs two inputs:
 - `endpoint`: this is the URL of the `/token` endpoint of the app you deployed above. It should look like `https://my-app.com/token`.
