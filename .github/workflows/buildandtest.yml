@@ -1,4 +1,4 @@
-name: Test
+name: Build, Package & Test
 
 on:
   push:
@@ -36,9 +36,11 @@ jobs:
       - name: Push
         run: |
           COMMIT_OPTIONS="--allow-empty"
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           git add . 
           git commit $COMMIT_OPTIONS -m "[no ci] actions packaging"
-          git push origin ${{ env.GITHUB_REF_NAME }}
+          git push
 
   test:
     name: Build and test
