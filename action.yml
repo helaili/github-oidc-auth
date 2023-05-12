@@ -1,5 +1,5 @@
 name: 'GitHub OIDC Auth'
-description: 'Retrieve a scoped GitHub token based on an OIDC token and the [GitHub App OIDC authentication app](https://github.com/helaili/github-oidc-auth-app)'
+description: 'Retrieve a scoped GitHub token based on the OIDC token and the GitHub OIDC Authentication app'
 author: 'helaili'
 branding:
   icon: 'lock'
