@@ -36,8 +36,6 @@ jobs:
       - name: Push
         run: |
           COMMIT_OPTIONS="--allow-empty"
-          git config --global user.name "${{ env.GITHUB_ACTOR }}"
-          git config --global user.email "${{ env.GITHUB_ACTOR }}@users.noreply.github.com"
           git add . 
           git commit $COMMIT_OPTIONS -m "[no ci] actions packaging"
           git push origin ${{ env.GITHUB_REF_NAME }}
