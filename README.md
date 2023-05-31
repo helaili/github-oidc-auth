@@ -34,7 +34,7 @@ should-work-with-action:
 
 # Giving it a try
 
-You might to give this app and action a try without going through the hassle of creating a new GitHub app and deploying it somewhere. Make sense, so I created a sandbox for you. This is a sandbox, there is no SLA coming with this and as I am running it, it really means that you are trusting me with your GitHub token. I am not going to do anything bad with it, but you should not use this for anything serious. In order to limit any problem,  no organisation permission are granted to this app instance. The only repository permissions granted are:
+You might want to give this app and action a try without going through the hassle of creating a new GitHub app and deploying it somewhere. Make sense, so I created a sandbox for you. This is a sandbox, there is no SLA coming with this and as I am running it, it really means that you are trusting me with your GitHub token. I am not going to do anything bad with it, but you should not use this for anything serious. In order to limit any problem,  no organisation permission are granted to this app instance. The only repository permissions granted are:
 - administration: `read`
 - contents: `write`
 - issues: `write`
