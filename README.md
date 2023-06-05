@@ -45,7 +45,18 @@ In order to use this sandbox, you will need to:
 - Create a workflow that uses the action `helaili/github-oidc-auth` as shown below. 
 
 ```yaml
-...
+name: Test GitHub OIDC Auth sandbox
+
+on:
+  workflow_dispatch:
+   
+jobs:
+  sandbox-test:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write #Important. We need this to get the OIDC token from Actions
+      
     steps:
       - name: Get the token
         id: getToken
