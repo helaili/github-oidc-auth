@@ -40,7 +40,7 @@ You might want to give this app and action a try without going through the hassl
 - issues: `write`
 
 In order to use this sandbox, you will need to:
-- Create a file named `oidc_entitlements.yml` in the `.github-private` repository of your organisation as previously explained. 
+- Create a file named `oidc_entitlements.json` in the `.github-private` repository of your organisation. See [the app's README file](https://github.com/helaili/github-oidc-auth-app/blob/main/README.md) for details about the syntax of this file.
 - Install the app on your organisation by clicking [here](https://github.com/apps/oidc-auth-for-github-sandbox). Make sure you grant the app access to at least the `.github-private` repository and whichever other one within this organisation that you will want to access using the token. 
 - Create a workflow that uses the action `helaili/github-oidc-auth` as shown below. 
 
